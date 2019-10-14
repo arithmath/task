@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS task;
+
+CREATE TABLE IF NOT EXISTS task.task(
+  `id`   int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `task` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO task.task(task) VALUE('タスク1');
+
+INSERT INTO task.task(task) VALUE('タスク2');
