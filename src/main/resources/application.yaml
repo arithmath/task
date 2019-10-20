@@ -3,3 +3,6 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/task
     username: user
     password: password
+
+server:
+  port: 9000

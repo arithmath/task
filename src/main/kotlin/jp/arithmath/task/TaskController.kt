@@ -1,22 +1,29 @@
 package jp.arithmath.task
 
+import jp.arithmath.task.`interface`.Loggable
 import jp.arithmath.task.request.TaskPostRequest
 import jp.arithmath.task.request.TaskPutRequest
-import org.springframework.validation.annotation.Validated
+import lombok.extern.slf4j.Slf4j
 import org.springframework.web.bind.annotation.*
-import javax.validation.Constraint
 import javax.validation.Valid
-import javax.validation.constraints.Pattern
 
+@Slf4j
 @RestController
+@CrossOrigin(origins = ["http://localhost:8080"])
 class TaskController(
         val service: TaskService
-) {
+): Loggable {
+
     @RequestMapping(
             value="/tasks",
             method= [RequestMethod.GET]
     )
     fun getTaskList(): Array<TaskData> {
+        log.info("get task list info. key = {}", "hoge")
+        log.warn("get task list warn. key = {}", "fuga")
+        log.warn("get task list TARGET warn. key = {}", "piyo")
+        log.error("get task list error. key = {}", "fnfn")
+        log.error("get task list TARGET error. key = {}", "hnhn")
         return service.getTaskList()
     }
 
@@ -43,6 +50,9 @@ class TaskController(
     }
 
     @RequestMapping(
+
+
+
             value="/tasks/{taskId}",
             method= [RequestMethod.PUT]
     )

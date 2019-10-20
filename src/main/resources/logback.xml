@@ -1,0 +1,26 @@
+<configuration>
+    <!--
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    -->
+    <appender name="HOGE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="jp.arithmath.task.logback.CustomFilter">
+        </filter>
+        <encoder>
+            <pattern>
+                %-4relative [%thread] %-5level %logger{30} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="HOGE" />
+    </root>
+
+    <logger name="jp.arithmath.task.TaskController" level="WARN">
+    </logger>
+
+    <!--
+    <logger name="org.springframework" level="INFO">
+    </logger>
+    -->
+</configuration>
